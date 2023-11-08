@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>
+        <Label id="Date"></Label><br>
+        <Label id="Time"></Label>
+    </h1>
+
+</body>
+<script>
+    setInterval(() => {
+        curreTime();
+        curreDate();
+    }, 1000);
+
+    function curreDate() {
+        d = new Date();
+        var year = d.getFullYear();
+        var mounth = d.getMonth();
+        var date = String(d.getDate()).padStart(2, 0);
+        var marr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        // var darr = ["sunday", "monday", "tuesday", "wednesday", "thursday", " friday", "saturday", ];
+        document.getElementById("Date").innerHTML = `Date : ${date}-${marr[mounth]}-${year}`;
+
+    }
+
+    function curreTime() {
+        date = new Date();
+        // var Date = String(date.getHours()).padStart(3, 0);
+        var Hour = String(date.getHours() - 12).padStart(2, 0);
+        var Min = String(date.getMinutes()).padStart(2, 0);
+        var Sec = String(date.getSeconds()).padStart(2, 0);
+        var Mill = String(date.getMilliseconds()).padStart(1, 0);
+        document.getElementById("Time").innerHTML = `Time :${Hour}:${Min}:${Sec}`
+    }
+</script>
+
+</html>
